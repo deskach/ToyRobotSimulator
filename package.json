@@ -1,0 +1,16 @@
+{
+  "name": "ToyRobotSimulator",
+  "version": "0.0.0",
+  "description": "ToyRobotSimulator",
+  "main": "app.js",
+  "author": {
+    "name": "Dzianis",
+    "email": ""
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "mocha": "^2.3.4",
+    "should": "^7.1.1",
+    "underscore": "^1.8.3"
+  }
+}
