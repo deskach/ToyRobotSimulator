@@ -1,9 +1,7 @@
-﻿var should = require('should');
-var assert = require('assert');
+﻿var assert = require('assert');
 
 var StateUndefined = require('../stateUndefined').StateUndefined;
 var sConsts = require('../constants').stateConstants;
-var StateMachine = require('../StateMachine');
 var snReady = require('../constants').stateMachineConstants.stateNames.READY;
 var snUdefined = require('../constants').stateMachineConstants.stateNames.UNDEFINED;
 
@@ -21,7 +19,7 @@ describe('StateUndefined', function () {
       };
 
       stateUndef = new StateUndefined(stateMachineMoq);
-    })
+    });
     
     it('ignonre "MOVE" command', function () {
       var next = stateUndef.next({
@@ -38,15 +36,17 @@ describe('StateUndefined', function () {
     });
     
     it('ignonre "LEFT" command', function () {
-      stateUndef.next({
+      var next = stateUndef.next({
         name: sConsts.Commands.LEFT
-      }).should.equal(stateUndef);
+      });
+      assert.deepEqual(next, stateUndef);
     });
 
     it('ignonre "RIGHT" command', function () {
-      stateUndef.next({
+      var next = stateUndef.next({
         name: sConsts.Commands.RIGHT
-      }).should.equal(stateUndef);
+      });
+      assert.deepEqual(next, stateUndef);
     });
 
     it('accept "PLACE" command', function() {
