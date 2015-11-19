@@ -4,15 +4,13 @@ var sConsts = require('./constants').stateConstants;
 var assert = require('assert');
 
 function StateReady(stateMachine) {
-  StateBase.call(stateMachine);
+  StateBase.call(this, stateMachine);
 }
 
 StateReady.prototype = Object.create(StateBase.prototype);
-StateReady.prototype.constructor = StateReady;
-
 StateReady.prototype.name = function () {
   return sConsts.types.ready;
-}
+};
 
 StateReady.prototype.run = function () {
   assert(this.cmd);
@@ -56,13 +54,13 @@ StateReady.prototype.run = function () {
     
     this.stateMachine.out(output);
   }
-}
+};
 
 StateReady.prototype.next = function (cmd) {
   this.validate(cmd);
   this.cmd = cmd;
   
   return this;
-}
+};
 
 module.exports.StateReady = StateReady;

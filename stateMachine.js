@@ -16,9 +16,7 @@ function StateMachine(states, currentStateName) {
 StateMachine.prototype = Object.create(Object.prototype, {
   states: { writable: true, configurable: false, value: {} },
   currentState: { writable: true, configurable: false, value: null }
-})
-
-StateMachine.prototype.constructor = StateMachine;
+});
 
 StateMachine.prototype.runAll = function (input) {
   var self = this;
@@ -31,10 +29,10 @@ StateMachine.prototype.runAll = function (input) {
       console.log(e);
     } 
   });
-}
+};
 
 StateMachine.prototype.out = function (output) {
   console.log(output);
-}
+};
 
 module.exports.StateMachine = StateMachine;

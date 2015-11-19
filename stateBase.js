@@ -14,14 +14,12 @@ StateBase.prototype = Object.create(Object.prototype, {
     writable: true, 
     configurable: false, 
     value: undefined
-  },
+  }
 });
-
-StateBase.prototype.constructor = StateBase;
 
 StateBase.prototype.name = function () {
   return consts.types.base;
-}
+};
 
 StateBase.prototype.validate = function (cmd) {
   assert(cmd.hasOwnProperty('name'));
@@ -57,8 +55,8 @@ StateBase.prototype.validate = function (cmd) {
   }
 };
 
-StateBase.prototype.next = function (cmd) {
+StateBase.prototype.next = function () {
   throw "Override me";
-}
+};
 
 module.exports.StateBase = StateBase;
