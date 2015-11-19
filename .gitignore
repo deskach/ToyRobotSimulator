@@ -3,3 +3,4 @@ obj/
 node_modules/
 ToyRobotSimulator.njsproj
 .ntvs_analysis.dat
+.idea/
