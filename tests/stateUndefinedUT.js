@@ -7,56 +7,85 @@ var snUndefined = require('../constants').stateMachineConstants.stateNames.UNDEF
 
 describe('StateUndefined', function () {
   var stateUndef, stateMachineMoq, states;
-
-  beforeEach(function() {
+  
+  function initVars() {
     states = {};
     states[snReady] = {};
     states[snUndefined] = stateUndef;
-
+    
     stateMachineMoq = {
       states: states
     };
-
+    
     stateUndef = new StateUndefined({
-      stateMachine: stateMachineMoq});
-  });
-
-  describe('When created should', function () {
-    it('ignore "MOVE" command', function () {
+      stateMachine: stateMachineMoq
+    });
+  }
+  
+  describe('.next() ignores', function () {
+    beforeEach(function () { initVars(); });
+    
+    it('"MOVE" command', function () {
       var next = stateUndef.next({
         name: sConsts.Commands.MOVE
       });
       assert.deepEqual(next, stateUndef);
     });
     
-    it('ignore "REPORT" command', function () {
+    it('"REPORT" command', function () {
       var next = stateUndef.next({
         name: sConsts.Commands.REPORT
       });
       assert.deepEqual(next, stateUndef);
     });
     
-    it('ignore "LEFT" command', function () {
+    it('"LEFT" command', function () {
       var next = stateUndef.next({
         name: sConsts.Commands.LEFT
       });
       assert.deepEqual(next, stateUndef);
     });
-
-    it('ignore "RIGHT" command', function () {
+    
+    it('"RIGHT" command', function () {
       var next = stateUndef.next({
         name: sConsts.Commands.RIGHT
       });
       assert.deepEqual(next, stateUndef);
     });
-
-    it('accept "PLACE" command', function() {
+  });
+  
+  describe('.next() accepts', function () {
+    beforeEach(function () { initVars(); });
+    
+    it('"PLACE 0,0,NORTH" command', function () {
       var next = stateUndef.next({
         name: sConsts.Commands.PLACE,
-        args: {x: 2, y: 3, f: sConsts.Facings.NORTH}
+        args: { x: sConsts.minX, y: sConsts.minY, f: sConsts.Facings.NORTH }
       });
-
+      
       assert.equal(next, stateMachineMoq.states[snReady]);
+    });
+  });
+  
+  describe('.next() throws on', function () {
+    beforeEach(function () { initVars(); });
+    
+    it('"PLACE 5,0,NORTH" command', function () {
+      assert.throws(function () {
+        stateUndef.next({
+          name: sConsts.Commands.PLACE,
+          args: { x: sConsts.maxX, y: sConsts.minY, f: sConsts.Facings.NORTH }
+        }, sConsts.Exceptions.badX);
+      })
+    })
+
+    it('"PLACE 0,5,NORTH" command', function () {
+      assert.throws(function () {
+        stateUndef.next({
+          name: sConsts.Commands.PLACE,
+          args: { x: sConsts.minX, y: sConsts.maxY, f: sConsts.Facings.NORTH }
+        }, sConsts.Exceptions.badX);
+      })
     })
   });
 });

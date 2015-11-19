@@ -46,20 +46,20 @@ StateBase.prototype.validate = function (cmd) {
         y = cmd.args.y,
         f = cmd.args.f;
     
-    if (x < consts.minX || x > consts.maxX) {
+    if (x < consts.minX || x >= consts.maxX) {
       throw consts.Exceptions.badX;
-    } else if (y < consts.minY || y > consts.maxY) {
+    } else if (y < consts.minY || y >= consts.maxY) {
       throw consts.Exceptions.badY;
     } else if (f === consts.Facings.UNDEFINED || 
             !consts.Facings.hasOwnProperty(f)) {
       throw consts.Exceptions.badF;
     }
   } else if (cmd.name === consts.Commands.MOVE) {
-    if ((this.f === consts.Facings.NORTH) && (this.y + 1 > consts.maxY)) {
+    if ((this.f === consts.Facings.NORTH) && (this.y + 1 >= consts.maxY)) {
       throw consts.Exceptions.badY;
     } else if ((this.f === consts.Facings.SOUTH) && (this.y - 1 < consts.minY)) {
       throw consts.Exceptions.badY;
-    } else if ((this.f === consts.Facings.EAST) && (this.x + 1 > consts.maxX)) {
+    } else if ((this.f === consts.Facings.EAST) && (this.x + 1 >= consts.maxX)) {
       throw consts.Exceptions.badX;
     } else if ((this.f === consts.Facings.WEST) && (this.x - 1 < consts.minX)) {
       throw consts.Exceptions.badX;
