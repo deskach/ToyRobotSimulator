@@ -77,7 +77,7 @@ describe('StateUndefined', function () {
           args: { x: sConsts.maxX, y: sConsts.minY, f: sConsts.Facings.NORTH }
         }, sConsts.Exceptions.badX);
       })
-    })
+    });
 
     it('"PLACE 0,5,NORTH" command', function () {
       assert.throws(function () {
@@ -86,6 +86,16 @@ describe('StateUndefined', function () {
           args: { x: sConsts.minX, y: sConsts.maxY, f: sConsts.Facings.NORTH }
         }, sConsts.Exceptions.badX);
       })
-    })
+    });
+
+    it('"PLACE 0,0,BAD-FACING" command', function () {
+      assert.throws(function () {
+        stateUndef.next({
+          name: sConsts.Commands.PLACE,
+          args: { x: sConsts.minX, y: sConsts.minY, f: 'BAD-FACING' }
+        });
+      }, 
+      /BAD-FACING/);
+    });
   });
 });

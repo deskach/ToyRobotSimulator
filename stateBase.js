@@ -41,6 +41,7 @@ StateBase.prototype.validate = function (cmd) {
     assert(cmd.args.hasOwnProperty('x'));
     assert(cmd.args.hasOwnProperty('y'));
     assert(cmd.args.hasOwnProperty('f'));
+    assert(consts.Facings.hasOwnProperty(cmd.args.f), cmd.args.f);
     
     var x = cmd.args.x,
         y = cmd.args.y,
@@ -50,8 +51,7 @@ StateBase.prototype.validate = function (cmd) {
       throw consts.Exceptions.badX;
     } else if (y < consts.minY || y >= consts.maxY) {
       throw consts.Exceptions.badY;
-    } else if (f === consts.Facings.UNDEFINED || 
-            !consts.Facings.hasOwnProperty(f)) {
+    } else if (f === consts.Facings.UNDEFINED) {
       throw consts.Exceptions.badF;
     }
   } else if (cmd.name === consts.Commands.MOVE) {
