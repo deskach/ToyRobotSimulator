@@ -4,7 +4,7 @@ function StateMachine(states, currentStateName) {
   if (states) {
     var self = this;
 
-    _(states).each(function (state) {
+    _.each(states, function (state) {
       state.stateMachine = self;
       self.states[state.name()] = state;
     });
@@ -21,7 +21,7 @@ StateMachine.prototype = Object.create(Object.prototype, {
 StateMachine.prototype.runAll = function (input) {
   var self = this;
 
-  _(input).each(function (cmd) {
+  _.each(input, function (cmd) {
     try {
       self.currentState = self.currentState.next(cmd);
       self.currentState.run();
