@@ -8,21 +8,21 @@ var sConsts = require('../constants').stateConstants;
 var snReady = require('../constants').stateMachineConstants.stateNames.READY;
 var snUndefined = require('../constants').stateMachineConstants.stateNames.UNDEFINED;
 
-var stateUndef, stateMachineMoq;
-
-beforeEach(function() {
-  var states = {};
-
-  states[snReady] = {};
-  states[snUndefined] = {};
-  stateMachineMoq = {
-    states: states
-  };
-
-  stateUndef = new StateUndefined(stateMachineMoq);
-});
-
 describe('StateUndefined', function () {
+  var stateUndef, stateMachineMoq;
+
+  beforeEach(function() {
+    var states = {};
+
+    states[snReady] = {};
+    states[snUndefined] = {};
+    stateMachineMoq = {
+      states: states
+    };
+
+    stateUndef = new StateUndefined(stateMachineMoq);
+  });
+
   describe('When created should', function () {
     it('ignore "MOVE" command', function () {
       var next = stateUndef.next({
