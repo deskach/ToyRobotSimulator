@@ -143,4 +143,18 @@ describe('StateUndefined', function () {
     });
 
   });
+
+  describe('.run()', function () {
+    beforeEach(function () { initVars(); });
+        
+    it('does nothing', function () {
+      var initialObjectState = JSON.stringify(stateUndef);
+
+      stateUndef.run();
+      
+      var afterRunObjectState = JSON.stringify(stateUndef);
+
+      assert.equal(initialObjectState, afterRunObjectState);
+    })
+  })
 });
