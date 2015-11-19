@@ -22,32 +22,36 @@ describe('StateReady', function () {
     });
   };
   
-  describe('.next() accepts', function () {
-    beforeEach(function () { initVars(); });
-    
-    it('MOVE command');
-    
-    it('REPORT command');
-    
-    it('LEFT command');
-    
-    it('RIGHT command');
-    
-    it('PLACE command');
+  describe('.next()', function () {
+    describe('accepts commands', function () {
+      beforeEach(function () { initVars(); });
+      
+      it('MOVE');
+      
+      it('REPORT');
+      
+      it('LEFT');
+      
+      it('RIGHT');
+      
+      it('PLACE');
+    });
   });
 
-  describe('.run() processes', function () {
-    beforeEach(function () { initVars(); });
-    
-    it('MOVE command');
-    
-    it('REPORT command');
-    
-    it('LEFT command');
-    
-    it('RIGHT command');
-    
-    it('PLACE command');
+  describe('.run()', function () {
+    describe('processes commands', function () {
+      beforeEach(function () { initVars(); });
+      
+      it('MOVE');
+      
+      it('REPORT');
+      
+      it('LEFT');
+      
+      it('RIGHT');
+      
+      it('PLACE');
+    });
   })
 
 })
