@@ -3,7 +3,7 @@
 var StateUndefined = require('../stateUndefined').StateUndefined;
 var sConsts = require('../constants').stateConstants;
 var snReady = require('../constants').stateMachineConstants.stateNames.READY;
-var snUdefined = require('../constants').stateMachineConstants.stateNames.UNDEFINED;
+var snUndefined = require('../constants').stateMachineConstants.stateNames.UNDEFINED;
 
 describe('StateUndefined', function () {
   describe('When created should', function () {
@@ -13,7 +13,7 @@ describe('StateUndefined', function () {
       var states = {};
 
       states[snReady] = {};
-      states[snUdefined] = {};
+      states[snUndefined] = {};
       stateMachineMoq = {
         states: states
       };
@@ -21,28 +21,28 @@ describe('StateUndefined', function () {
       stateUndef = new StateUndefined(stateMachineMoq);
     });
     
-    it('ignonre "MOVE" command', function () {
+    it('ignore "MOVE" command', function () {
       var next = stateUndef.next({
         name: sConsts.Commands.MOVE
       });
       assert.deepEqual(next, stateUndef);
     });
     
-    it('ignonre "REPORT" command', function () {
+    it('ignore "REPORT" command', function () {
       var next = stateUndef.next({
         name: sConsts.Commands.REPORT
       });
       assert.deepEqual(next, stateUndef);
     });
     
-    it('ignonre "LEFT" command', function () {
+    it('ignore "LEFT" command', function () {
       var next = stateUndef.next({
         name: sConsts.Commands.LEFT
       });
       assert.deepEqual(next, stateUndef);
     });
 
-    it('ignonre "RIGHT" command', function () {
+    it('ignore "RIGHT" command', function () {
       var next = stateUndef.next({
         name: sConsts.Commands.RIGHT
       });
