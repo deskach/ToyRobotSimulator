@@ -3,6 +3,18 @@ var StateUndefined = require('./stateUndefined').StateUndefined;
 var sConsts = require('./constants').stateConstants;
 var assert = require('assert');
 
+var face2face = {};
+face2face[sConsts.Commands.LEFT] = {};
+face2face[sConsts.Commands.LEFT][sConsts.Facings.EAST] = sConsts.Facings.NORTH;
+face2face[sConsts.Commands.LEFT][sConsts.Facings.NORTH] = sConsts.Facings.WEST;
+face2face[sConsts.Commands.LEFT][sConsts.Facings.WEST] = sConsts.Facings.SOUTH;
+face2face[sConsts.Commands.LEFT][sConsts.Facings.SOUTH] = sConsts.Facings.EAST;
+face2face[sConsts.Commands.RIGHT] = {};
+face2face[sConsts.Commands.RIGHT][sConsts.Facings.EAST] = sConsts.Facings.SOUTH;
+face2face[sConsts.Commands.RIGHT][sConsts.Facings.NORTH] = sConsts.Facings.EAST;
+face2face[sConsts.Commands.RIGHT][sConsts.Facings.WEST] = sConsts.Facings.NORTH;
+face2face[sConsts.Commands.RIGHT][sConsts.Facings.SOUTH] = sConsts.Facings.WEST;
+
 function StateReady(options) {
   StateBase.call(this, options);
 }
@@ -30,25 +42,9 @@ StateReady.prototype.run = function () {
       this.x -= 1;
     }
   } else if (this.cmd.name === sConsts.Commands.LEFT) {
-    if (this.f === sConsts.Facings.NORTH) {
-      this.f = sConsts.Facings.WEST;
-    } else if (this.f === sConsts.Facings.SOUTH) {
-      this.f = sConsts.Facings.EAST;
-    } else if (this.f === sConsts.Facings.EAST) {
-      this.f = sConsts.Facings.NORTH
-    } else if (this.f === sConsts.Facings.WEST) {
-      this.f = sConsts.Facings.SOUTH;
-    }
+    this.f = face2face[sConsts.Commands.LEFT][this.f];
   } else if (this.cmd.name === sConsts.Commands.RIGHT) {
-    if (this.f === sConsts.Facings.NORTH) {
-      this.f = sConsts.Facings.EAST;
-    } else if (this.f === sConsts.Facings.SOUTH) {
-      this.f = sConsts.Facings.WEST;
-    } else if (this.f === sConsts.Facings.EAST) {
-      this.f = sConsts.Facings.SOUTH;
-    } else if (this.f === sConsts.Facings.WEST) {
-      this.f = sConsts.Facings.NORTH
-    }
+    this.f = face2face[sConsts.Commands.RIGHT][this.f];
   } else if (this.cmd.name === sConsts.Commands.REPORT) {
     var output = [this.x, this.y, this.f].join(',');
     
