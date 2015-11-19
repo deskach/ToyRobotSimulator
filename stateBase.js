@@ -41,11 +41,14 @@ StateBase.prototype.validate = function (cmd) {
     assert(cmd.args.hasOwnProperty('x'));
     assert(cmd.args.hasOwnProperty('y'));
     assert(cmd.args.hasOwnProperty('f'));
-    assert(consts.Facings.hasOwnProperty(cmd.args.f), cmd.args.f);
+    assert(consts.Facings.hasOwnProperty(cmd.args.f), consts.Exceptions.badF);
     
     var x = cmd.args.x,
         y = cmd.args.y,
         f = cmd.args.f;
+    
+    assert(x + 0 === x, consts.Exceptions.badX);
+    assert(y + 0 === y, consts.Exceptions.badY);
     
     if (x < consts.minX || x >= consts.maxX) {
       throw consts.Exceptions.badX;

@@ -22,8 +22,8 @@
   
   Exceptions: {
     ImplementMe: 'Implement me',
-    badX: 'x is out of range',
-    badY: 'y is out of range',
+    badX: 'x is invalid',
+    badY: 'y is invalid',
     badF: 'facing is invalid'
   },
   

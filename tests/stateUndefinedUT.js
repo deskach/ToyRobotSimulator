@@ -65,6 +65,33 @@ describe('StateUndefined', function () {
       
       assert.equal(next, stateMachineMoq.states[snReady]);
     });
+
+    it('"PLACE 0,4,EAST" command', function () {
+      var next = stateUndef.next({
+        name: sConsts.Commands.PLACE,
+        args: { x: sConsts.maxX - 1, y: sConsts.minY, f: sConsts.Facings.EAST }
+      });
+
+      assert.equal(next, stateMachineMoq.states[snReady]);
+    });
+
+    it('"PLACE 4,4,WEST" command', function () {
+      var next = stateUndef.next({
+        name: sConsts.Commands.PLACE,
+        args: { x: sConsts.maxX - 1, y: sConsts.maxY - 1, f: sConsts.Facings.WEST }
+      });
+
+      assert.equal(next, stateMachineMoq.states[snReady]);
+    });
+
+    it('"PLACE 4,0,SOUTH" command', function () {
+      var next = stateUndef.next({
+        name: sConsts.Commands.PLACE,
+        args: { x: sConsts.maxX - 1, y: sConsts.minY, f: sConsts.Facings.SOUTH }
+      });
+
+      assert.equal(next, stateMachineMoq.states[snReady]);
+    });
   });
   
   describe('.next() throws on', function () {
@@ -76,7 +103,7 @@ describe('StateUndefined', function () {
           name: sConsts.Commands.PLACE,
           args: { x: sConsts.maxX, y: sConsts.minY, f: sConsts.Facings.NORTH }
         }, sConsts.Exceptions.badX);
-      })
+      });
     });
 
     it('"PLACE 0,5,NORTH" command', function () {
@@ -85,7 +112,7 @@ describe('StateUndefined', function () {
           name: sConsts.Commands.PLACE,
           args: { x: sConsts.minX, y: sConsts.maxY, f: sConsts.Facings.NORTH }
         }, sConsts.Exceptions.badX);
-      })
+      });
     });
 
     it('"PLACE 0,0,BAD-FACING" command', function () {
@@ -94,8 +121,26 @@ describe('StateUndefined', function () {
           name: sConsts.Commands.PLACE,
           args: { x: sConsts.minX, y: sConsts.minY, f: 'BAD-FACING' }
         });
-      }, 
-      /BAD-FACING/);
+      }, sConsts.Exceptions.badF);
     });
+
+    it('"PLACE a,0,NORTH" command', function () {
+      assert.throws(function () {
+        stateUndef.next({
+          name: sConsts.Commands.PLACE,
+          args: { x: sConsts.maxX, y: sConsts.minY, f: sConsts.Facings.NORTH }
+        }, sConsts.Exceptions.badX);
+      });
+    });
+
+    it('"PLACE 0,b,NORTH" command', function () {
+      assert.throws(function () {
+        stateUndef.next({
+          name: sConsts.Commands.PLACE,
+          args: { x: sConsts.maxX, y: sConsts.minY, f: sConsts.Facings.NORTH }
+        }, sConsts.Exceptions.badX);
+      });
+    });
+
   });
 });
