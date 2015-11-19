@@ -1,4 +1,7 @@
 ﻿var assert = require('assert');
+var it = require('mocha/lib/mocha.js').it;
+var before = require('mocha/lib/mocha.js').before;
+var describe = require('mocha/lib/mocha.js').describe;
 
 var StateUndefined = require('../stateUndefined').StateUndefined;
 var sConsts = require('../constants').stateConstants;
