@@ -1,6 +1,6 @@
 ﻿var assert = require('assert');
+var beforeEach = require('mocha/lib/mocha.js').beforeEach;
 var it = require('mocha/lib/mocha.js').it;
-var before = require('mocha/lib/mocha.js').before;
 var describe = require('mocha/lib/mocha.js').describe;
 
 var StateUndefined = require('../stateUndefined').StateUndefined;
@@ -8,22 +8,22 @@ var sConsts = require('../constants').stateConstants;
 var snReady = require('../constants').stateMachineConstants.stateNames.READY;
 var snUndefined = require('../constants').stateMachineConstants.stateNames.UNDEFINED;
 
+var stateUndef, stateMachineMoq;
+
+beforeEach(function() {
+  var states = {};
+
+  states[snReady] = {};
+  states[snUndefined] = {};
+  stateMachineMoq = {
+    states: states
+  };
+
+  stateUndef = new StateUndefined(stateMachineMoq);
+});
+
 describe('StateUndefined', function () {
   describe('When created should', function () {
-    var stateUndef, stateMachineMoq;
-
-    before(function() {
-      var states = {};
-
-      states[snReady] = {};
-      states[snUndefined] = {};
-      stateMachineMoq = {
-        states: states
-      };
-
-      stateUndef = new StateUndefined(stateMachineMoq);
-    });
-    
     it('ignore "MOVE" command', function () {
       var next = stateUndef.next({
         name: sConsts.Commands.MOVE
