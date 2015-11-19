@@ -31,8 +31,4 @@ StateMachine.prototype.runAll = function (input) {
   });
 };
 
-StateMachine.prototype.out = function (output) {
-  console.log(output);
-};
-
 module.exports.StateMachine = StateMachine;

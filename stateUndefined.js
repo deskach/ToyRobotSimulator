@@ -2,15 +2,15 @@
 var sConsts = require('./constants').stateConstants;
 var smConsts = require('./constants').stateMachineConstants;
 
-var StateUndefined = function (stateMachine) {
-  StateBase.call(this, stateMachine);
-}
+var StateUndefined = function (options) {
+  StateBase.call(this, options);
+};
 
 StateUndefined.prototype = Object.create(StateBase.prototype);
 
 StateUndefined.prototype.name = function () {
   return sConsts.types.undefined;
-}
+};
 
 StateUndefined.prototype.next = function (cmd) {
   this.validate(cmd);
@@ -24,12 +24,8 @@ StateUndefined.prototype.next = function (cmd) {
   }
   
   return this;
-}
+};
 
-StateUndefined.prototype.run = function () {
-  return;
-}
-
-StateUndefined.prototype.constructor = StateUndefined;
+StateUndefined.prototype.run = function () { };
 
 module.exports.StateUndefined = StateUndefined;

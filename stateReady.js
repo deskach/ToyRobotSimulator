@@ -3,8 +3,8 @@ var StateUndefined = require('./stateUndefined').StateUndefined;
 var sConsts = require('./constants').stateConstants;
 var assert = require('assert');
 
-function StateReady(stateMachine) {
-  StateBase.call(this, stateMachine);
+function StateReady(options) {
+  StateBase.call(this, options);
 }
 
 StateReady.prototype = Object.create(StateBase.prototype);
@@ -52,7 +52,7 @@ StateReady.prototype.run = function () {
   } else if (this.cmd.name === sConsts.Commands.REPORT) {
     var output = [this.x, this.y, this.f].join(',');
     
-    this.stateMachine.out(output);
+    this.report(output);
   }
 };
 

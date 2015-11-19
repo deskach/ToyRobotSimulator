@@ -9,18 +9,19 @@ var snReady = require('../constants').stateMachineConstants.stateNames.READY;
 var snUndefined = require('../constants').stateMachineConstants.stateNames.UNDEFINED;
 
 describe('StateUndefined', function () {
-  var stateUndef, stateMachineMoq;
+  var stateUndef, stateMachineMoq, states;
 
   beforeEach(function() {
-    var states = {};
-
+    states = {};
     states[snReady] = {};
-    states[snUndefined] = {};
+    states[snUndefined] = stateUndef;
+
     stateMachineMoq = {
       states: states
     };
 
-    stateUndef = new StateUndefined(stateMachineMoq);
+    stateUndef = new StateUndefined({
+      stateMachine: stateMachineMoq});
   });
 
   describe('When created should', function () {

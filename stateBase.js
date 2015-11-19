@@ -1,8 +1,16 @@
 ﻿var consts = require('./constants').stateConstants;
 var assert = require('assert');
 
-function StateBase(stateMachine) {
-  this.stateMachine = stateMachine;
+function StateBase(options) {
+  options = options || {};
+
+  if(options.hasOwnProperty('stateMachine')){
+    this.stateMachine = options['stateMachine'];
+  }
+
+  if (options.hasOwnProperty('onReport')) {
+    this.report = options['onReport'];
+  }
 }
 
 StateBase.prototype = Object.create(Object.prototype, {
@@ -16,6 +24,10 @@ StateBase.prototype = Object.create(Object.prototype, {
     value: undefined
   }
 });
+
+StateBase.prototype.report = function(msg) {
+  console.log(msg);
+};
 
 StateBase.prototype.name = function () {
   return consts.types.base;

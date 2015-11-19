@@ -20,14 +20,15 @@ beforeEach(function() {
 describe('StateMachine should run', function () {
     var states,  stateMachine;
 
-    states = [new StateUndefined(), new StateReady()];
+    states = [
+        new StateUndefined(),
+        new StateReady({
+            'onReport': function (output) {
+            strOutput += output;
+        }})
+    ];
     stateMachine = new StateMachine(states,
         StateUndefined.prototype.name());
-
-    // Overwrite out method for testing purposes
-    stateMachine.out = function (output) {
-        strOutput += output;
-    };
 
     it('"PLACE 0,0,NORTH" "MOVE "REPORT"', function() {
         // Expected Output:  0,1,NORTH
