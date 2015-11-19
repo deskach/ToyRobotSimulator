@@ -2,9 +2,6 @@
  * Created by Dzianis on 19/11/2015.
  */
 var assert = require('assert');
-var beforeEach = require('mocha/lib/mocha.js').beforeEach;
-var it = require('mocha/lib/mocha.js').it;
-var describe = require('mocha/lib/mocha.js').describe;
 
 var StateUndefined = require('../stateUndefined').StateUndefined;
 var StateReady = require('../stateReady').StateReady;
