@@ -1,8 +1,6 @@
 ﻿var assert = require('assert');
 var cConsts = require('../constants').commandConstants;
-var sConsts = require('../constants').stateConstants;
 var CommandFactory = require('../cmdFactory').CommandFactory;
-var CommandPlace = require('../cmdPlace').CommandPlace;
 var CommandBase = require('../cmdBase').CommandBase;
 
 describe('CommandBase', function () {

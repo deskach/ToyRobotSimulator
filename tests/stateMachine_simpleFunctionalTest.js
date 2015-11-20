@@ -8,14 +8,12 @@ var StateReady = require('../stateReady').StateReady;
 var StateMachine = require('../stateMachine').StateMachine;
 var sConsts = require('../constants').stateConstants;
 
-var strOutput;
-
-beforeEach(function() {
-    strOutput = '';
-});
-
 describe('StateMachine should run', function () {
-    var states,  stateMachine;
+    var states,  stateMachine, strOutput
+
+    beforeEach(function() {
+        strOutput = '';
+    });
 
     states = [
         new StateUndefined(),
