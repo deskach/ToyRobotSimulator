@@ -6,9 +6,17 @@ var CommandBase = require('./cmdBase').CommandBase;
 function CommandPlace(args) {
   assert(args.length >= 3);
   
-  var x = parseInt(args[0]),
-      y = parseInt(args[1]), 
-      f = args[2].toUpperCase();
+  var x, y, f;
+  
+  if (args instanceof Array) {
+    x = parseInt(args[0]);
+    y = parseInt(args[1]);
+    f = args[2].toUpperCase();
+  } else {
+    x = parseInt(args['x']);
+    y = parseInt(args['y']);
+    f = args['f'].toUpperCase();
+  }
   
   assert(x + 0 === x);
   assert(y + 0 === y);

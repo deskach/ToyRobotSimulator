@@ -1,6 +1,5 @@
 ﻿var assert = require('assert');
 var cConsts = require('../constants').commandConstants;
-var CommandFactory = require('../cmdFactory').CommandFactory;
 var CommandBase = require('../cmdBase').CommandBase;
 
 describe('CommandBase', function () {
@@ -15,7 +14,6 @@ describe('CommandBase', function () {
       new CommandBase('bla-bla-bla');
     }, 'bla-bla-bla');
   });
-  
   
   it('supports args dictionary', function () { 
     var testDict = {};
