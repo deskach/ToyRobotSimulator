@@ -4,15 +4,17 @@ var sConsts = require('./constants').stateConstants;
 var CommandBase = require('./cmdBase').CommandBase;
 
 function CommandPlace(args) {
-  assert(args.length >= 3);
-  
   var x, y, f;
   
   if (args instanceof Array) {
+    assert(args.length >= 3);
+    
     x = parseInt(args[0]);
     y = parseInt(args[1]);
     f = args[2].toUpperCase();
   } else {
+    assert(Object.keys(args).length >= 3);
+    
     x = parseInt(args['x']);
     y = parseInt(args['y']);
     f = args['f'].toUpperCase();
