@@ -14,7 +14,7 @@ stdin.addListener("data", function (d) {
   var strCmd = d.toString().trim();
 
   if (strCmd.length > 0) {
-    var cmd = cmdFactory.create(d);
+    var cmd = cmdFactory.create(strCmd);
         
     input.push(cmd);
   } else {

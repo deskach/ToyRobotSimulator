@@ -29,8 +29,7 @@ CommandFactory.prototype = Object.create(Object.prototype, {
 });
 
 CommandFactory.prototype.create = function (strCmd) {
-  var s = strCmd.toString().trim();
-  var cmdArr = (s.split(' '));
+  var cmdArr = (strCmd.split(' '));
   var cmdName = cmdArr[0].toUpperCase();
   
   assert(this.cmd2creator.hasOwnProperty(cmdName))
