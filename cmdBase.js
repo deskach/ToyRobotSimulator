@@ -1,6 +1,9 @@
-﻿var consts = require('./constants').commandConstants;
+﻿var assert = require('assert');
+var consts = require('./constants').commandConstants;
 
 function CommandBase(name, args) {
+  assert(consts.Commands.hasOwnProperty(name));
+
   this.name = name;
   this.args = args;
 };
