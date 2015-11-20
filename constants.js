@@ -1,10 +1,25 @@
-﻿module.exports.stateConstants = {
+﻿var commands = {
+  PLACE: 'PLACE',
+  MOVE: 'MOVE',
+  LEFT: 'LEFT',
+  RIGHT: 'RIGHT',
+  REPORT: 'REPORT'
+};
+
+var exceptions = {
+  ImplementMe: 'Implement me',
+  badX: 'x is invalid',
+  badY: 'y is invalid',
+  badF: 'facing is invalid'
+};
+
+module.exports.stateConstants = {
   types: {
     base: 'BASE',
     undefined: 'UNDEFINED',
     ready: 'READY'
   },
-
+  
   Facings: {
     NORTH: 'NORTH',
     EAST: 'EAST',
@@ -12,20 +27,9 @@
     WEST: 'WEST'
   },
   
-  Commands : {
-    PLACE: 'PLACE',
-    MOVE: 'MOVE',
-    LEFT: 'LEFT',
-    RIGHT: 'RIGHT',
-    REPORT: 'REPORT'
-  },
+  Commands : commands,
   
-  Exceptions: {
-    ImplementMe: 'Implement me',
-    badX: 'x is invalid',
-    badY: 'y is invalid',
-    badF: 'facing is invalid'
-  },
+  Exceptions: exceptions,
   
   minX: 0,
   minY: 0,
@@ -38,4 +42,9 @@ module.exports.stateMachineConstants = {
     READY: 'READY',
     UNDEFINED: 'UNDEFINED'
   }
+};
+
+module.exports.commandConstants = {
+  Commands: commands,
+  Exceptions: exceptions
 };
