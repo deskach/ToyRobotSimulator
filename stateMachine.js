@@ -26,7 +26,7 @@ StateMachine.prototype.runAll = function (input) {
       self.currentState = self.currentState.next(cmd);
       self.currentState.run();
     } catch (e) {
-      //console.log(e);
+      console.log('Impossible command "' + cmd.name + '"');
     } 
   });
 };
