@@ -10,13 +10,18 @@ var cmdFactory = new CommandFactory();
 var stdin = process.openStdin();
 var input = [];
 
+console.log('Write commands and hit <ENTER> to execute all of them')
+
 stdin.addListener("data", function (d) {
   var strCmd = d.toString().trim();
 
   if (strCmd.length > 0) {
-    var cmd = cmdFactory.create(strCmd);
-        
-    input.push(cmd);
+    try {
+      var cmd = cmdFactory.create(strCmd);
+      input.push(cmd);
+    } catch (e) {
+      console.log('Wrong command "' + strCmd + '"');
+    }        
   } else {
     stateMachine.runAll(input);
     input = [];
