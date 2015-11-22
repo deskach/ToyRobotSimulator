@@ -3,7 +3,7 @@ var cConsts = require('../constants').commandConstants;
 var sConsts = require('../constants').stateConstants;
 var CommandFactory = require('../cmdFactory').CommandFactory;
 var CommandPlace = require('../cmdPlace').CommandPlace;
-var CommandBase = require('../cmdBase').CommandBase;
+var CommandBase = require('../cmdBase');
 
 describe('CommandFactory', function () {
   it('provides default constructors', function () {

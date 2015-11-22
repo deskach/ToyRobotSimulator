@@ -1,7 +1,7 @@
 ﻿var assert = require('assert');
 var consts = require('./constants').commandConstants;
 var sConsts = require('./constants').stateConstants;
-var CommandBase = require('./cmdBase').CommandBase;
+var CommandBase = require('./cmdBase');
 
 function CommandPlace(args) {
   var x, y, f;

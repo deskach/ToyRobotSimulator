@@ -13,4 +13,4 @@ CommandBase.prototype = Object.create(Object.prototype, {
   args: { writable: true, configurable: false, value: {} }
 });
 
-module.exports.CommandBase = CommandBase;
+module.exports = CommandBase;

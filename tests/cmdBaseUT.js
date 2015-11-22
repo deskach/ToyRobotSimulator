@@ -1,6 +1,6 @@
 ﻿var assert = require('assert');
 var cConsts = require('../constants').commandConstants;
-var CommandBase = require('../cmdBase').CommandBase;
+var CommandBase = require('../cmdBase');
 
 describe('CommandBase', function () {
   it('supports name property', function () {
