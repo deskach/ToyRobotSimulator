@@ -40,4 +40,4 @@ CommandFactory.prototype.create = function (strCmd) {
   return this.cmd2creator[cmdName](cmdArgsArr);
 };
 
-module.exports.CommandFactory = CommandFactory;
+module.exports = CommandFactory;

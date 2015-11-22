@@ -1,7 +1,7 @@
 ﻿var StateUndefined = require('./stateUndefined').StateUndefined;
 var StateReady = require('./stateReady').StateReady;
 var StateMachine = require('./stateMachine').StateMachine;
-var CommandFactory = require('./cmdFactory.js').CommandFactory;
+var CommandFactory = require('./cmdFactory.js');
 
 var states = [new StateUndefined(), new StateReady()];
 var stateMachine = new StateMachine(states, StateUndefined.prototype.name());
