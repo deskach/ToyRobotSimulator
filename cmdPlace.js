@@ -29,4 +29,4 @@ function CommandPlace(args) {
 
 CommandPlace.prototype = Object.create(CommandBase.prototype);
 
-module.exports.CommandPlace = CommandPlace;
+module.exports = CommandPlace;

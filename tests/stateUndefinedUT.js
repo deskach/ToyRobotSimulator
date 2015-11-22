@@ -1,6 +1,6 @@
 ﻿var assert = require('assert');
 
-var StateUndefined = require('../stateUndefined').StateUndefined;
+var StateUndefined = require('../stateUndefined');
 var sConsts = require('../constants').stateConstants;
 var snReady = require('../constants').stateMachineConstants.stateNames.READY;
 var snUndefined = require('../constants').stateMachineConstants.stateNames.UNDEFINED;

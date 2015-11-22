@@ -74,4 +74,4 @@ StateBase.prototype.next = function () {
   throw "Override me";
 };
 
-module.exports.StateBase = StateBase;
+module.exports = StateBase;

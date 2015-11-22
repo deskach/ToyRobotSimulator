@@ -31,4 +31,4 @@ StateMachine.prototype.runAll = function (input) {
   });
 };
 
-module.exports.StateMachine = StateMachine;
+module.exports = StateMachine;

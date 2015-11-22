@@ -1,7 +1,7 @@
 ﻿var assert = require('assert');
 var cConsts = require('../constants').commandConstants;
 var sConsts = require('../constants').stateConstants;
-var CommandPlace = require('../cmdPlace').CommandPlace;
+var CommandPlace = require('../cmdPlace');
 
 describe('CommandPlace', function () {
   describe('supports args as a', function () {

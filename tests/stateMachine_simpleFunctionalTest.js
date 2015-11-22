@@ -3,9 +3,9 @@
  */
 var assert = require('assert');
 
-var StateUndefined = require('../stateUndefined').StateUndefined;
-var StateReady = require('../stateReady').StateReady;
-var StateMachine = require('../stateMachine').StateMachine;
+var StateUndefined = require('../stateUndefined');
+var StateReady = require('../stateReady');
+var StateMachine = require('../stateMachine');
 var sConsts = require('../constants').stateConstants;
 
 describe('StateMachine should run', function () {

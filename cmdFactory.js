@@ -1,6 +1,6 @@
 ﻿var assert = require('assert');
 var consts = require('./constants').commandConstants;
-var CommandPlace = require('./cmdPlace').CommandPlace;
+var CommandPlace = require('./cmdPlace');
 var CommandBase = require('./cmdBase');
 
 var defaultCreators = {};

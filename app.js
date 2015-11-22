@@ -1,6 +1,6 @@
-﻿var StateUndefined = require('./stateUndefined').StateUndefined;
-var StateReady = require('./stateReady').StateReady;
-var StateMachine = require('./stateMachine').StateMachine;
+﻿var StateUndefined = require('./stateUndefined');
+var StateReady = require('./stateReady');
+var StateMachine = require('./stateMachine');
 var CommandFactory = require('./cmdFactory.js');
 
 var states = [new StateUndefined(), new StateReady()];

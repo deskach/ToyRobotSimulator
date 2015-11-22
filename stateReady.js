@@ -1,5 +1,5 @@
-﻿var StateBase = require('./stateBase').StateBase;
-var StateUndefined = require('./stateUndefined').StateUndefined;
+﻿var StateBase = require('./stateBase');
+var StateUndefined = require('./stateUndefined');
 var sConsts = require('./constants').stateConstants;
 var assert = require('assert');
 
@@ -59,4 +59,4 @@ StateReady.prototype.next = function (cmd) {
   return this;
 };
 
-module.exports.StateReady = StateReady;
+module.exports = StateReady;

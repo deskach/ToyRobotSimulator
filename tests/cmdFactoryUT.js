@@ -2,7 +2,7 @@
 var cConsts = require('../constants').commandConstants;
 var sConsts = require('../constants').stateConstants;
 var CommandFactory = require('../cmdFactory');
-var CommandPlace = require('../cmdPlace').CommandPlace;
+var CommandPlace = require('../cmdPlace');
 var CommandBase = require('../cmdBase');
 
 describe('CommandFactory', function () {

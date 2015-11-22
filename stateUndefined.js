@@ -1,4 +1,4 @@
-﻿var StateBase = require('./stateBase').StateBase;
+﻿var StateBase = require('./stateBase');
 var sConsts = require('./constants').stateConstants;
 var smConsts = require('./constants').stateMachineConstants;
 
@@ -28,4 +28,4 @@ StateUndefined.prototype.next = function (cmd) {
 
 StateUndefined.prototype.run = function () { };
 
-module.exports.StateUndefined = StateUndefined;
+module.exports = StateUndefined;
