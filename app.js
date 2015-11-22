@@ -1,13 +1,12 @@
-﻿var StateUndefined = require('./stateUndefined');
+﻿var readline = require('readline');
+var StateUndefined = require('./stateUndefined');
 var StateReady = require('./stateReady');
 var StateMachine = require('./stateMachine');
-var CommandFactory = require('./cmdFactory.js');
+var CommandFactory = require('./cmdFactory');
 
 var states = [new StateUndefined(), new StateReady()];
 var stateMachine = new StateMachine(states, StateUndefined.prototype.name());
 var cmdFactory = new CommandFactory();
-var readline = require('readline');
-
 var input = [];
 
 var rl = readline.createInterface({
